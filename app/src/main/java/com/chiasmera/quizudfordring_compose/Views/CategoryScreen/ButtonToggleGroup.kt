@@ -1,4 +1,4 @@
-package com.chiasmera.quizudfordring_compose.Views
+package com.chiasmera.quizudfordring_compose.Views.CategoryScreen
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Row

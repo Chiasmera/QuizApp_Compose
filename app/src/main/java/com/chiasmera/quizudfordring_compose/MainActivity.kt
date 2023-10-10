@@ -11,7 +11,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.chiasmera.quizudfordring_compose.Controller.Destinations
 import com.chiasmera.quizudfordring_compose.Controller.QuizViewModel
-import com.chiasmera.quizudfordring_compose.Views.CategoryStateView
+import com.chiasmera.quizudfordring_compose.Views.CategoryScreen.CategoryStateView
 import com.chiasmera.quizudfordring_compose.ui.theme.QuizUdfordring_ComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -51,7 +51,8 @@ fun QuizUdfordringApp(
             ) {
                 val index  = it.arguments?.getInt(Destinations.QuestionViewDestination.argName)
                 if (index != null) {
-                    QuestionStateView(index,
+                    QuestionStateView(
+                        currentQuestionIndex = index,
                         questionState = quizViewModel.questionState,
                         onNavigateToCategories = { navController.navigate(Destinations.CategoryViewDestination.route) },
                         onNextQuestion = { navController.navigateToQuestion(index+1) }

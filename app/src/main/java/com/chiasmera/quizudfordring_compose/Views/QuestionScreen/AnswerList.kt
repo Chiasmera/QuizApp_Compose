@@ -1,4 +1,4 @@
-package com.chiasmera.quizudfordring_compose.Views
+package com.chiasmera.quizudfordring_compose.Views.QuestionScreen
 
 import android.text.Html
 import androidx.compose.foundation.background
@@ -21,7 +21,8 @@ import com.chiasmera.quizudfordring_compose.Model.Question
 
 @Composable
 fun AnswerList(
-    currentQuestion: Question
+    currentQuestion: Question,
+    onCorrectAnswer: (Boolean) -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -39,7 +40,13 @@ fun AnswerList(
                     .fillMaxWidth()
                     .background(currentColor),
                 onClick = {
-                    currentColor = if (answer == currentQuestion.correctAnswer) { Color.Green } else { Color.Red }
+                    if (answer == currentQuestion.correctAnswer) {
+                        currentColor = Color.Green
+                        onCorrectAnswer(true)
+                    } else {
+                        currentColor = Color.Red
+                        onCorrectAnswer(false)
+                    }
                 }
             ) {
                 Text(
@@ -50,5 +57,4 @@ fun AnswerList(
 
         }
     }
-
 }

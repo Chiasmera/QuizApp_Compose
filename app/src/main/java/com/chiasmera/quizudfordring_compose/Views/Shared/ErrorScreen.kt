@@ -1,4 +1,4 @@
-package com.chiasmera.quizudfordring_compose.Views
+package com.chiasmera.quizudfordring_compose.Views.Shared
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
