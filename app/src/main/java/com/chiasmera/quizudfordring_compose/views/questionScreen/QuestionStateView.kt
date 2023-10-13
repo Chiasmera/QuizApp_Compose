@@ -38,7 +38,7 @@ fun QuestionStateView(
                 QuestionBottomButtonBar(
                     onNavigateToCategories = onNavigateToCategories,
                     onNextQuestion = onNextQuestion,
-                    isLast = index < questionState.questions.count() - 1,
+                    isLast = index >= questionState.questions.count(),
                     correctAnswerFound = correctAnswerFound
                 )
             },

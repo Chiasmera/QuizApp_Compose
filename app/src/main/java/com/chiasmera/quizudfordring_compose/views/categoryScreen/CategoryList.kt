@@ -29,10 +29,12 @@ fun CategoryList(
     onCategoryChosen: (amount: Int, catID: Int, difficulty: String) -> Unit,
     currentdifficulty: EDifficulty
 ) {
+
+
     LazyColumn(modifier = modifier.padding(16.dp)) {
         items(categories) {
             FilledTonalButton(
-                onClick = { onCategoryChosen(10, it.id, currentdifficulty.string) },
+                onClick = { onCategoryChosen(minOf(10,it.getcountforDifficulty(currentdifficulty)), it.id, currentdifficulty.string) },
                 contentPadding = PaddingValues(12.dp),
                 modifier = modifier
                     .fillMaxWidth()

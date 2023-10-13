@@ -4,7 +4,9 @@ import android.text.Html
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -18,22 +20,27 @@ import com.chiasmera.quizudfordring_compose.model.Question
 fun CurrentQuestionView(
     modifier: Modifier = Modifier, currentQuestion: Question, onCorrectAnswer: (Boolean) -> Unit
 ) {
-    Column(
-        modifier = modifier
-            .fillMaxHeight()
-            .padding(16.dp),
-        verticalArrangement = Arrangement.SpaceAround
+    Surface(
+        modifier = Modifier.fillMaxSize(), color = androidx.compose.material.MaterialTheme.colors.background
     ) {
-        Text(
-            text = Html.fromHtml(currentQuestion.question, Html.FROM_HTML_MODE_LEGACY).toString(),
-            style = MaterialTheme.typography.headlineLarge,
-            modifier = Modifier
-        )
+        Column(
+            modifier = modifier
+                .fillMaxHeight()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.SpaceAround
+        ) {
+            Text(
+                text = Html.fromHtml(currentQuestion.question, Html.FROM_HTML_MODE_LEGACY).toString(),
+                style = MaterialTheme.typography.headlineLarge,
+                modifier = Modifier
+            )
 
-        AnswerList(
-            currentQuestion = currentQuestion, onCorrectAnswer = onCorrectAnswer
-        )
+            AnswerList(
+                currentQuestion = currentQuestion, onCorrectAnswer = onCorrectAnswer
+            )
+        }
     }
+
 }
 
 @Preview(showSystemUi = true)

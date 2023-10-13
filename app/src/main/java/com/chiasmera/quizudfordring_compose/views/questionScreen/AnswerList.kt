@@ -48,7 +48,8 @@ fun AnswerList(
                 }) {
                 Text(
                     text = Html.fromHtml(answer, Html.FROM_HTML_MODE_LEGACY).toString(),
-                    style = MaterialTheme.typography.headlineMedium
+                    style = MaterialTheme.typography.headlineMedium,
+                    color = MaterialTheme.colorScheme.primary
                 )
             }
 

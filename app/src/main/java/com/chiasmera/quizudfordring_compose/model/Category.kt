@@ -14,4 +14,12 @@ data class Category(
     var mediumCount: Int = 0,
     var hardCount: Int = 0,
     var totalCount: Int = 0
-)
+) {
+    fun getcountforDifficulty(difficulty: EDifficulty) : Int {
+        when (difficulty) {
+            EDifficulty.EASY -> return easyCount
+            EDifficulty.MEDIUM -> return mediumCount
+            EDifficulty.HARD -> return hardCount
+        }
+    }
+}
