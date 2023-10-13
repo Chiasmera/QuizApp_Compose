@@ -1,4 +1,4 @@
-package com.chiasmera.quizudfordring_compose.Views.QuestionScreen
+package com.chiasmera.quizudfordring_compose.views.questionScreen
 
 import android.text.Html
 import androidx.compose.foundation.layout.Arrangement
@@ -11,18 +11,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.chiasmera.quizudfordring_compose.Data.SampleData
-import com.chiasmera.quizudfordring_compose.Model.Question
+import com.chiasmera.quizudfordring_compose.data.SampleData
+import com.chiasmera.quizudfordring_compose.model.Question
 
 @Composable
 fun CurrentQuestionView(
-    modifier : Modifier = Modifier,
-    currentQuestion : Question,
-    onCorrectAnswer : (Boolean) -> Unit
+    modifier: Modifier = Modifier, currentQuestion: Question, onCorrectAnswer: (Boolean) -> Unit
 ) {
-    Column (
-        modifier = Modifier
-            .fillMaxHeight(),
+    Column(
+        modifier = modifier
+            .fillMaxHeight()
+            .padding(16.dp),
         verticalArrangement = Arrangement.SpaceAround
     ) {
         Text(
@@ -32,17 +31,15 @@ fun CurrentQuestionView(
         )
 
         AnswerList(
-            currentQuestion = currentQuestion,
-            onCorrectAnswer = onCorrectAnswer )
+            currentQuestion = currentQuestion, onCorrectAnswer = onCorrectAnswer
+        )
     }
 }
 
 @Preview(showSystemUi = true)
 @Composable
-fun QuestionPreview () {
-    CurrentQuestionView(
-        modifier = Modifier.padding(16.dp),
+fun QuestionPreview() {
+    CurrentQuestionView(modifier = Modifier.padding(16.dp),
         currentQuestion = SampleData.questions[0],
-        onCorrectAnswer = { }
-    )
+        onCorrectAnswer = { })
 }

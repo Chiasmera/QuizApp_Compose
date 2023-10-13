@@ -1,39 +1,40 @@
-package com.chiasmera.quizudfordring_compose.Views.QuestionScreen
+package com.chiasmera.quizudfordring_compose.views.questionScreen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 
 
 @Composable
 fun QuestionBottomButtonBar(
-    modifier : Modifier = Modifier,
-    onNavigateToCategories : () -> Unit = {},
+    modifier: Modifier = Modifier,
+    onNavigateToCategories: () -> Unit = {},
     isLast: Boolean,
     onNextQuestion: () -> Unit = {},
-    correctAnswerFound:Boolean
+    correctAnswerFound: Boolean
 ) {
-    Row (modifier = Modifier
-        .fillMaxWidth(),
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp),
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         ElevatedButton(
-            onClick = onNavigateToCategories,
-            modifier = Modifier
+            onClick = onNavigateToCategories, modifier = Modifier
         ) {
             Text("Categories")
         }
 
         if (isLast) {
             ElevatedButton(
-                onClick = onNextQuestion,
-                modifier = Modifier,
-                enabled = correctAnswerFound
+                onClick = onNextQuestion, modifier = Modifier, enabled = correctAnswerFound
             ) {
                 Text("Next Question")
             }
@@ -46,8 +47,7 @@ fun QuestionBottomButtonBar(
 @Composable
 fun QuestionButtonBarPreview_unanswered() {
     QuestionBottomButtonBar(
-        isLast = false,
-        correctAnswerFound = false
+        isLast = false, correctAnswerFound = false
     )
 }
 
@@ -55,8 +55,7 @@ fun QuestionButtonBarPreview_unanswered() {
 @Composable
 fun QuestionButtonBarPreview_answered() {
     QuestionBottomButtonBar(
-        isLast = false,
-        correctAnswerFound = true
+        isLast = false, correctAnswerFound = true
     )
 }
 
@@ -64,7 +63,6 @@ fun QuestionButtonBarPreview_answered() {
 @Composable
 fun QuestionButtonBarPreview_lastQuestion() {
     QuestionBottomButtonBar(
-        isLast = true,
-        correctAnswerFound = true
+        isLast = true, correctAnswerFound = true
     )
 }

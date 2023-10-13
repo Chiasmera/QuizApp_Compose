@@ -11,11 +11,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import com.chiasmera.quizudfordring_compose.Controller.QuestionState
-import com.chiasmera.quizudfordring_compose.Views.QuestionScreen.CurrentQuestionView
-import com.chiasmera.quizudfordring_compose.Views.Shared.ErrorScreen
-import com.chiasmera.quizudfordring_compose.Views.Shared.LoadingScreen
-import com.chiasmera.quizudfordring_compose.Views.QuestionScreen.QuestionBottomButtonBar
+import com.chiasmera.quizudfordring_compose.controller.QuestionState
+import com.chiasmera.quizudfordring_compose.views.questionScreen.CurrentQuestionView
+import com.chiasmera.quizudfordring_compose.views.questionScreen.QuestionBottomButtonBar
+import com.chiasmera.quizudfordring_compose.views.shared.ErrorScreen
+import com.chiasmera.quizudfordring_compose.views.shared.LoadingScreen
 
 @Composable
 fun QuestionStateView(
@@ -45,11 +45,9 @@ fun QuestionStateView(
             modifier = Modifier
 
         ) {
-            CurrentQuestionView(
-                modifier = Modifier.padding(it),
+            CurrentQuestionView(modifier = Modifier.padding(it),
                 currentQuestion = questionState.questions[index],
-                onCorrectAnswer = { correct -> correctAnswerFound = correct }
-            )
+                onCorrectAnswer = { correct -> correctAnswerFound = correct })
         }
 
 

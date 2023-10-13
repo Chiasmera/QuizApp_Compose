@@ -1,4 +1,4 @@
-package com.chiasmera.quizudfordring_compose.Views.CategoryScreen
+package com.chiasmera.quizudfordring_compose.views.categoryScreen
 
 //import androidx.compose.material.Text
 
@@ -18,10 +18,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import com.chiasmera.quizudfordring_compose.Controller.CategoryState
-import com.chiasmera.quizudfordring_compose.Data.SampleData
-import com.chiasmera.quizudfordring_compose.Model.Category
-import com.chiasmera.quizudfordring_compose.Model.EDifficulty
+import com.chiasmera.quizudfordring_compose.controller.CategoryState
+import com.chiasmera.quizudfordring_compose.data.SampleData
+import com.chiasmera.quizudfordring_compose.model.Category
+import com.chiasmera.quizudfordring_compose.model.EDifficulty
 
 @Composable
 fun CategoryStateView(
@@ -38,7 +38,9 @@ fun CategoryStateView(
             is CategoryState.Success -> CategoryView(
                 categories = categoryState.categories,
                 onCategoryChosen = onCategoryChosen,
-                onDifficultySelection = {  index -> difficulty = EDifficulty.values().asList()[index] },
+                onDifficultySelection = { index ->
+                    difficulty = EDifficulty.values().asList()[index]
+                },
                 currentdifficulty = difficulty
             )
 
@@ -66,8 +68,7 @@ fun CategoryView(
         )
 
         ButtonToggleGroup(
-            items = EDifficulty.values().asList(),
-            onClick = onDifficultySelection
+            items = EDifficulty.values().asList(), onClick = onDifficultySelection
         )
 
         CategoryList(
@@ -83,8 +84,7 @@ fun CategoryView(
 @Preview(showSystemUi = true)
 @Composable
 fun CategoriesPreview() {
-    CategoryView(
-        categories = SampleData.categories,
+    CategoryView(categories = SampleData.categories,
         onCategoryChosen = { i: Int, i1: Int, s: String -> },
         onDifficultySelection = { },
         currentdifficulty = EDifficulty.MEDIUM

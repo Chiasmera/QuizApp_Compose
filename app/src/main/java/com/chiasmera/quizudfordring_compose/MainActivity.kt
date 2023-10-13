@@ -9,9 +9,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.chiasmera.quizudfordring_compose.Controller.Destinations
-import com.chiasmera.quizudfordring_compose.Controller.QuizViewModel
-import com.chiasmera.quizudfordring_compose.Views.CategoryScreen.CategoryStateView
+import com.chiasmera.quizudfordring_compose.controller.Destinations
+import com.chiasmera.quizudfordring_compose.controller.QuizViewModel
+import com.chiasmera.quizudfordring_compose.views.categoryScreen.CategoryStateView
 import com.chiasmera.quizudfordring_compose.ui.theme.QuizUdfordring_ComposeTheme
 
 class MainActivity : ComponentActivity() {

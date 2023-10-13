@@ -1,4 +1,4 @@
-package com.chiasmera.quizudfordring_compose.Views.QuestionScreen
+package com.chiasmera.quizudfordring_compose.views.questionScreen
 
 import android.text.Html
 import androidx.compose.foundation.background
@@ -17,12 +17,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.chiasmera.quizudfordring_compose.Model.Question
+import com.chiasmera.quizudfordring_compose.model.Question
 
 @Composable
 fun AnswerList(
-    currentQuestion: Question,
-    onCorrectAnswer: (Boolean) -> Unit
+    currentQuestion: Question, onCorrectAnswer: (Boolean) -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -35,10 +34,9 @@ fun AnswerList(
 
             var currentColor by remember { mutableStateOf(Color.Transparent) }
 
-            FilledTonalButton(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(currentColor),
+            FilledTonalButton(modifier = Modifier
+                .fillMaxWidth()
+                .background(currentColor),
                 onClick = {
                     if (answer == currentQuestion.correctAnswer) {
                         currentColor = Color.Green
@@ -47,8 +45,7 @@ fun AnswerList(
                         currentColor = Color.Red
                         onCorrectAnswer(false)
                     }
-                }
-            ) {
+                }) {
                 Text(
                     text = Html.fromHtml(answer, Html.FROM_HTML_MODE_LEGACY).toString(),
                     style = MaterialTheme.typography.headlineMedium

@@ -1,4 +1,4 @@
-package com.chiasmera.quizudfordring_compose.Views.CategoryScreen
+package com.chiasmera.quizudfordring_compose.views.categoryScreen
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Row
@@ -17,9 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
-import com.chiasmera.quizudfordring_compose.Model.EDifficulty
-
-
+import com.chiasmera.quizudfordring_compose.model.EDifficulty
 
 
 @Composable
@@ -36,10 +34,9 @@ fun ButtonToggleGroup(
         items.forEachIndexed { index, item ->
             OutlinedButton(
                 modifier = when (index) {
-                    0 ->
-                        Modifier
-                            .offset(0.dp, 0.dp)
-                            .zIndex(if (selectedIndex == index) 1f else 0f)
+                    0 -> Modifier
+                        .offset(0.dp, 0.dp)
+                        .zIndex(if (selectedIndex == index) 1f else 0f)
 
                     else ->
                         Modifier
