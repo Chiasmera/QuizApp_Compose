@@ -32,7 +32,7 @@ fun CategoryStateView(
     var difficulty by rememberSaveable { mutableStateOf(EDifficulty.MEDIUM) }
 
     Surface(
-        modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background
+        modifier = modifier.fillMaxSize(), color = MaterialTheme.colors.background
     ) {
         when (categoryState) {
             is CategoryState.Success -> CategoryView(

@@ -21,7 +21,7 @@ fun QuestionBottomButtonBar(
     correctAnswerFound: Boolean
 ) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .padding(16.dp),
         horizontalArrangement = Arrangement.SpaceBetween
